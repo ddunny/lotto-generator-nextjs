@@ -2,7 +2,26 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import _ from 'underscore'; // 관례적으로 .. 로드할 때는 같은 이름으로 합니다.
+import styled from 'styled-components';
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Number = styled.span`
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  font-size: 3rem;
+  background-color: #e5e5e5;
+`;
+
+// justify-content,align-items : display가 flex 여야 적용
+// styled-component 플러그인 추가하면, lint? 된다고?
 
 // npm : node.js 기반. node 를 위한 패키지 매니저입니다. npm은 위와 같이 임폴트해서 사용하면 돼요
 // node .. 두가지환경에서 접근하고 있어요. 프론트쪽, 백엔드쪽 모두에서 읽기 위함입니다.
@@ -42,11 +61,11 @@ const Home = () => {
       </Head>
 
       <div className='container'>
-        <div>
+        <Row>
           {
-            list.map(element => <span>{element + ' '}</span>)  // [] 로 묶인 형태로 출력된다.
+            list.map(element => <Number>{element}</Number>)  // [] 로 묶인 형태로 출력된다.
           }
-        </div>
+        </Row>
 
         <div>
           <button onClick={regenerate}>재생성</button>
