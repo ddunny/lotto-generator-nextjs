@@ -41,6 +41,16 @@ const Number = styled.span`
   }}
 `;
 
+const Btn = styled.button`
+  width: 25vw;
+  height: 10vh;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 2rem;
+  background: #e5e5e5;
+  border: #ddd;
+`;
+
 //` : es6에서 문자열을 다루는 방법으로 추가된 것입니다.
 // ${}를 이용해서 함수를 넣을수도 있고 변수를 넣을수도 있습니다. 함수: 리턴처리가 잘되어 있어야겠죠
 
@@ -92,7 +102,7 @@ const Home = () => {
         </Row>
 
         <div>
-          <button onClick={regenerate}>재생성</button>
+          <Btn onClick={regenerate}>재생성</Btn>
         </div>
 
       </div>
