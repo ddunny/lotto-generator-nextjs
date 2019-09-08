@@ -37,7 +37,7 @@ const Number = styled.span`
   }};
   color: ${ props => {
     const n = parseInt(props.children, 10);
-    return ( 10 < n && n <= 20 || 30 < n && n <= 40) ? 'white' : 'black';
+    return (10 < n && n <= 20 || 30 < n && n <= 40) ? 'white' : 'black';
   }}
 `;
 
@@ -75,7 +75,8 @@ function generate() {
 }
 
 const Home = () => {
-  const [list, setList] = React.useState(generate()); // state 선언
+  // const [list, setList] = React.useState(generate()); // state 선언 // 이렇게 하면 경고 발생 // Warning: Text content did not match. Server: "44" Client: "25"
+  const [list, setList] = React.useState([]); // state 선언
   const regenerate = () => {
     // state 에 값 넣기
     setList(generate());
@@ -97,8 +98,19 @@ const Home = () => {
       <div className='container'>
         <Row>
           {
-            list.map(element => <Number>{element}</Number>)  // [] 로 묶인 형태로 출력된다.
+            list.map(element => <Number key={element}>{element}</Number>)  // [] 로 묶인 형태로 출력된다.
           }
+
+          {/* list 중복된 값이 출력되는 경우가 있다..(로또의 경우엔 없지만) 
+          이 경우 key 를 반드시 설정해주어야 한다.
+          내부적으로 다른 key를 사용하도록 하기 위해 
+          복잡한 구조일 때 이걸 하지 않으면 굉장히 성능 저하
+          페이지 자체가 안나오거나 심각한 건 아닌데 해주자
+          key는 유니크하게 주세요.
+          ex : key={new Date().getTime().toString() + Math.random()}
+          */}
+
+          {/* Math.random() 만 썼을 때, 같은게 나올 수~도 있으요 */}
         </Row>
 
         <div>
