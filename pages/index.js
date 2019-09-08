@@ -42,9 +42,27 @@ const Home = () => {
       </Head>
 
       <div className="hero">
-        {list.join(', ')}
+        {/* {list.join(', ')} */}
 
-        
+        {
+          list.map(element => <span>{element + ' '}</span>)  // [] 로 묶인 형태로 출력된다.
+        }
+
+
+        {/* { 
+          [
+            <span></span>,
+            <span></span>
+          ]
+        } */}
+
+        {/*  error
+        {
+          <span></span>
+          <span></span>
+        } */}
+
+
       </div>
 
       <div>
