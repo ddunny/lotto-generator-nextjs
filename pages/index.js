@@ -17,8 +17,32 @@ const Number = styled.span`
   align-items: center;
   border-radius: 50px;
   font-size: 3rem;
-  background-color: #e5e5e5;
+  background: ${ props => {
+    const n = parseInt(props.children, 10);
+    if (n <= 10) {
+      return 'yellow';
+    }
+    else if (n <= 20) {
+      return 'blue';
+    }
+    else if (n <= 30) {
+      return 'red';
+    }
+    else if (n <= 40) {
+      return 'black';
+    }
+    else {
+      return 'green';
+    }
+  }};
+  color: ${ props => {
+    const n = parseInt(props.children, 10);
+    return ( 10 < n && n <= 20 || 30 < n && n <= 40) ? 'white' : 'black';
+  }}
 `;
+
+//` : es6에서 문자열을 다루는 방법으로 추가된 것입니다.
+// ${}를 이용해서 함수를 넣을수도 있고 변수를 넣을수도 있습니다. 함수: 리턴처리가 잘되어 있어야겠죠
 
 // justify-content,align-items : display가 flex 여야 적용
 // styled-component 플러그인 추가하면, lint? 된다고?
