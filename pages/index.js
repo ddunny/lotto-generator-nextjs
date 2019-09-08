@@ -42,8 +42,8 @@ const Number = styled.span`
 `;
 
 const Btn = styled.button`
-  width: 25vw;
-  height: 10vh;
+  width: 200px;
+  height: 50px;
   margin: 10px;
   border-radius: 5px;
   font-size: 2rem;
