@@ -28,6 +28,12 @@ const Home = () => {
     setList(generate());
   }
 
+  React.useEffect(() => {
+    // mount, update 될 때 이게 실행됩니다.
+    regenerate();
+  }, []); // [] => 주시대상입니다. 주시할 대상이 비어있다는것은 update 때는 보지 않고 mount 될 때 보겠다는 뜻
+  // mount 프론트에서 마운트. ! 서버사이드 렌더링은 막은거 ??.. 다시 공부하기
+
   return (
     // 리액트 : 변경이 되는 모든것은 state를 사용하길 권장. 사용안해도 되긴 하는데 ^^.@
     <div>
@@ -35,8 +41,10 @@ const Home = () => {
         <title>Home</title>
       </Head>
 
-      <div class="hero">
+      <div className="hero">
         {list.join(', ')}
+
+        
       </div>
 
       <div>
