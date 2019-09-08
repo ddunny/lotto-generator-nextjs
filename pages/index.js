@@ -41,80 +41,36 @@ const Home = () => {
         <title>Home</title>
       </Head>
 
-      <div className="hero">
-        {/* {list.join(', ')} */}
+      <div className='container'>
+        <div>
+          {
+            list.map(element => <span>{element + ' '}</span>)  // [] 로 묶인 형태로 출력된다.
+          }
+        </div>
 
-        {
-          list.map(element => <span>{element + ' '}</span>)  // [] 로 묶인 형태로 출력된다.
-        }
-
-
-        {/* { 
-          [
-            <span></span>,
-            <span></span>
-          ]
-        } */}
-
-        {/*  error
-        {
-          <span></span>
-          <span></span>
-        } */}
-
+        <div>
+          <button onClick={regenerate}>재생성</button>
+        </div>
 
       </div>
 
       <div>
-        <button onClick={regenerate}>재생성</button>
         {/* <button onClick={() => setList(generate())}></button> 로 작성해도 되지 않나요? 의문을 가질 수 있는데.. 취향의 차이다!*/}
       </div>
 
+      {/* scope */}
+      {/* 이 컴포넌트 안에서만 사용할 수 있는 스타일이라는 의미입니다. */}
+      {/* 다른 컴포넌트에 같은 이름의 스타일이 존재해도, 괜찮습니다. */}
+      {/* 모든 컴포넌트에서 공통으로 사용하려면 _document.js에 작성해주세요. */}
       <style jsx>{`
-    .hero {
-      width: 100%;
-      color: #333;
-    }
-    .title {
-      margin: 0;
-      width: 100%;
-      padding-top: 80px;
-      line-height: 1.15;
-      font-size: 48px;
-    }
-    .title,
-    .description {
-      text-align: center;
-    }
-    .row {
-      max-width: 880px;
-      margin: 80px auto 40px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-    }
-    .card {
-      padding: 18px 18px 24px;
-      width: 220px;
-      text-align: left;
-      text-decoration: none;
-      color: #434343;
-      border: 1px solid #9b9b9b;
-    }
-    .card:hover {
-      border-color: #067df7;
-    }
-    .card h3 {
-      margin: 0;
-      color: #067df7;
-      font-size: 18px;
-    }
-    .card p {
-      margin: 0;
-      padding: 12px 0 0;
-      font-size: 13px;
-      color: #333;
-    }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
   `}</style>
     </div>
   )
